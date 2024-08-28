@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>{% block title %}Home{% endblock %} - MyWebpage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <div>NAVBAR</div>
+    {% block content%} {% endblock %}
+    <div>FOOTER</div>
+  </body>
+</html>

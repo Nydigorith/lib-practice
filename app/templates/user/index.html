@@ -1,0 +1,27 @@
+<h1>All Users!</h1>
+
+<ul>
+  {% if users %} {% for user in users %}
+  <li>{{ user.name }}</li>
+  <form class="delete-form" id="{{user.id}}">
+    <button type="submit">Delete</button>
+  </form>
+
+  {% endfor %} {% else %}
+  <li>No users found</li>
+  {% endif %}
+</ul>
+
+<script>
+  document.addEventListener("submit", (e) => {
+    if (e.target.classList.contains("delete-form")) {
+      e.preventDefault();
+
+      fetch(`/user/${e.target.id}`, {
+        method: "DELETE",
+      }).then(() => {
+        window.location.href = "/user/";
+      });
+    }
+  });
+</script>
